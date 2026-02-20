@@ -1,4 +1,4 @@
-#Calcium Imaging Analysis Code
+##Calcium Imaging Analysis Code
 
 Analysis scripts used for the manuscript:
 [Full paper title]
@@ -7,7 +7,7 @@ Analysis scripts used for the manuscript:
 This repository contains the exact code used to compute the quantitative results reported in the paper.
 It is provided for transparency and reproducibility and is not a general-purpose software package.
 
-#Contact
+##Contact
 For questions regarding the biological experiments or analysis logic, please contact:
 
 Kai Zhang，
@@ -18,7 +18,8 @@ Huaxun Fan，
 University of Illinois at Urbana-Champaign，
 huaxunf2@illinois.edu
 
-#Citation
+##Citation
 If you use this repository, please cite:
 [Paper citation once available]
+
 
