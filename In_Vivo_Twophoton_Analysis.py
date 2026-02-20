@@ -1,16 +1,31 @@
 """
 In Vivo Calcium Imaging Analysis
 
-This script processes in vivo calcium imaging fluorescence traces (F.npy).
-It computes ΔF/F0 using a rolling minimum baseline and detects calcium events
-using scipy.signal.find_peaks.
+This script processes in vivo calcium imaging fluorescence traces
+extracted from Suite2p (F.npy).
+
+Experimental details:
+    - Sensor: jRGECO
+    - Imaging frequency: 1 Hz
+    - ROIs were manually curated in Suite2p
+      No additional iscell-based filtering is applied in this script.
+
+Analysis steps:
+    1. Baseline estimation (F0) using a rolling minimum window (20 frames).
+    2. ΔF/F0 calculation: (F − F0) / F0
+    3. Peak detection using scipy.signal.find_peaks
+       - Height threshold: 0.2 ΔF/F0
+       - Minimum peak distance: 1 frame (1 second at 1 Hz)
 
 Input:
-    F.npy — 2D array (cells x timepoints)
+    F.npy — 2D array (cells x timepoints), exported from Suite2p
 
 Output:
-    *_DeltaF.csv — normalized traces
-    *_Peaks.csv  — per-cell peak statistics
+    *_DeltaF.csv — normalized ΔF/F0 traces
+    *_Peaks.csv  — per-cell peak statistics:
+        - Peak_Count
+        - Peak_Frequency (events per second; 1 Hz acquisition)
+        - Avg_Peak_Amplitude
 
 Author: Huaxun Fan
 """
